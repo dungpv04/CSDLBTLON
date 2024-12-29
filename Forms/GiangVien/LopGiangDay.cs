@@ -30,27 +30,9 @@ namespace QuanLiSinhVien.Forms.GiangVien
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 var maLHP = row.Cells[0].Value.ToString();
-                var dssv = db.LopHocPhans.Where(x => x.MaLopHp == maLHP)
-                    .Join(db.DangKyHocPhans, lhp => lhp.MaLopHp, dkhp => dkhp.MaLopHp, (lhp, dkhp) => new
-                    {
-                        maSV = dkhp.MaSv
-                    }).Join(db.SinhViens, dkhp => dkhp.maSV, sv => sv.MaSv, (dkhp, sv) => new
-                    {
-                        maSv = sv.MaSv,
-                        tenSv = sv.TenSv,
-                        lopQL = db.LopHocPhans.FirstOrDefault(x => x.MaLopQl == sv.MaLopQl).TenLop
-                    })
-                    .Join(db.Diems, sv => sv.maSv, d => d.MaSv, (sv, d) => new SVLopHP
-                    {
-                        maSV = sv.maSv,
-                        tenSV = sv.tenSv,
-                        lopQL = sv.lopQL,
-                        dqt = d.DiemQt,
-                        diemThi = d.DiemThi,
-                        tongKet = d.TongKet,
-                    }).ToList();
                 
-                DSSVLopGiangDay dss = new DSSVLopGiangDay(dssv);
+                
+                DSSVLopGiangDay dss = new DSSVLopGiangDay(maLHP);
                 dss.Show();
             }
         }

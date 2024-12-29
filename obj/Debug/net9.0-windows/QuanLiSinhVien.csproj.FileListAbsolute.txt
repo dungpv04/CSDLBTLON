@@ -143,3 +143,6 @@ E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\refint\QuanLiSinhVien.dll
 E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.pdb
 E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.genruntimeconfig.cache
 E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\ref\QuanLiSinhVien.dll
+E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.GiangVien.ChamDiem.resources
+E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.sourcelink.json
+E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.SinhVien.DangKyMon.resources

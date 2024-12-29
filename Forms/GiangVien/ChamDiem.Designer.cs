@@ -33,6 +33,7 @@
             submit = new Button();
             labss = new Label();
             label2 = new Label();
+            warning = new Label();
             SuspendLayout();
             // 
             // dqt
@@ -51,13 +52,13 @@
             // 
             // submit
             // 
-            submit.Enabled = false;
             submit.Location = new Point(195, 192);
             submit.Name = "submit";
             submit.Size = new Size(94, 32);
             submit.TabIndex = 2;
             submit.Text = "Cập nhật";
             submit.UseVisualStyleBackColor = true;
+            submit.Click += submit_Click;
             // 
             // labss
             // 
@@ -77,18 +78,30 @@
             label2.TabIndex = 4;
             label2.Text = "Điểm thi";
             // 
+            // warning
+            // 
+            warning.AutoSize = true;
+            warning.ForeColor = Color.Red;
+            warning.Location = new Point(120, 237);
+            warning.Name = "warning";
+            warning.Size = new Size(189, 20);
+            warning.TabIndex = 5;
+            warning.Text = "Vui lòng nhập đủ đầu điểm";
+            warning.Visible = false;
+            // 
             // ChamDiem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(479, 318);
+            Controls.Add(warning);
             Controls.Add(label2);
             Controls.Add(labss);
             Controls.Add(submit);
             Controls.Add(dt);
             Controls.Add(dqt);
             Name = "ChamDiem";
-            Text = "ChamDiem";
+            Text = "Nhập điểm sinh viên";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -100,5 +113,6 @@
         private Button submit;
         private Label labss;
         private Label label2;
+        private Label warning;
     }
 }

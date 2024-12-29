@@ -33,15 +33,15 @@ namespace QuanLiSinhVien.Forms
                     malop = dkhp.MaLopHp,
                     masv = sv.MaSv
                 }).Join(db.LopHocPhans, dkhp => dkhp.malop, lhp => lhp.MaLopHp, (dkhp, lhp) => new LopHP
-            {
-                maLopHP = lhp.MaLopHp,
-                tenLopHP = lhp.TenLop,
-                hocKy = db.HocKies.FirstOrDefault(x => x.MaHk == lhp.MaHk).TenHk,
-                khoa = db.Khoas.FirstOrDefault(x => x.MaK == lhp.MaKhoa).TenK,
-                lopQL = db.LopQuanLies.FirstOrDefault(x => x.MaLopQl == lhp.MaLopQl).TenLop,
-                monHoc = db.MonHocs.FirstOrDefault(x => x.MaMh == lhp.MaMh).TenMh,
-            }).ToList();
-            
+                {
+                    maLopHP = lhp.MaLopHp,
+                    tenLopHP = lhp.TenLop,
+                    hocKy = db.HocKies.FirstOrDefault(x => x.MaHk == lhp.MaHk).TenHk,
+                    khoa = db.Khoas.FirstOrDefault(x => x.MaK == lhp.MaKhoa).TenK,
+                    lopQL = db.LopQuanLies.FirstOrDefault(x => x.MaLopQl == lhp.MaLopQl).TenLop,
+                    monHoc = db.MonHocs.FirstOrDefault(x => x.MaMh == lhp.MaMh).TenMh,
+                }).ToList();
+
             DSLopDaDangKy dsLopDaDangKy = new DSLopDaDangKy(dsLHP);
             dsLopDaDangKy.Show();
         }
@@ -50,14 +50,14 @@ namespace QuanLiSinhVien.Forms
         {
             var dsMonHoc = db.MonHocs.Where(x => x.MaK == sinhVien.MaKhoa)
                 .Select(x => new Models.MonHoc
-            {
-                maMonHoc = x.MaMh,
-                tenMonHoc = x.TenMh,
-                tinChi = x.TinChi,
-                khoa = db.Khoas.FirstOrDefault(x => x.MaK == x.MaK).TenK,
-                hocKi = db.HocKies.FirstOrDefault(x => x.MaHk == x.MaHk).TenHk
-            }).ToList();
-            
+                {
+                    maMonHoc = x.MaMh,
+                    tenMonHoc = x.TenMh,
+                    tinChi = x.TinChi,
+                    khoa = db.Khoas.FirstOrDefault(x => x.MaK == x.MaK).TenK,
+                    hocKi = db.HocKies.FirstOrDefault(x => x.MaHk == x.MaHk).TenHk
+                }).ToList();
+
             ChuongTrinhDaoTao cTao = new ChuongTrinhDaoTao(dsMonHoc);
             cTao.Show();
         }
@@ -117,24 +117,30 @@ namespace QuanLiSinhVien.Forms
                 if (gioiTinh == true)
                     gioiTinhText = "Nam";
                 else gioiTinhText = "Nữ";
-            
+
                 string message = $"Thông tin sinh viên:\n" +
-                                 $"- Mã SV: {maSV} \n"+
+                                 $"- Mã SV: {maSV} \n" +
                                  $"- Tên SV: {tenSV}\n" +
                                  $"- Ngày sinh: {ngaySinh:dd/MM/yyyy}\n" +
                                  $"- Điện thoại: {dienThoai}\n" +
                                  $"- Email: {email}\n" +
                                  $"- Giới tính: {gioiTinhText}\n" +
                                  $"- Khoa: {khoa}\n" +
-                                 $"- Số điện thoại phụ huynh: {sdtPH}\n" + 
+                                 $"- Số điện thoại phụ huynh: {sdtPH}\n" +
                                  $"- Lớp quản lí: {lopQL}\n";
-                
+
                 MessageBox.Show(message);
             }
-            catch(InvalidOperationException)
+            catch (InvalidOperationException)
             {
                 MessageBox.Show("Không tìm thấy sinh viên");
             }
+        }
+
+        private void dangkymon_Click(object sender, EventArgs e)
+        {
+            var dkMon = new DangKyMon(sinhVien);
+            dkMon.Show();
         }
     }
 }

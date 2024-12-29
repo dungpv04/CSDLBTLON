@@ -35,6 +35,7 @@
             showGradeBtn = new Button();
             showSchoolFeeBtn = new Button();
             seeAllSubjectsBtn = new Button();
+            dangkymon = new Button();
             SuspendLayout();
             // 
             // label1
@@ -58,7 +59,7 @@
             // 
             // userInforBtn
             // 
-            userInforBtn.Location = new Point(133, 390);
+            userInforBtn.Location = new Point(264, 388);
             userInforBtn.Margin = new Padding(3, 4, 3, 4);
             userInforBtn.Name = "userInforBtn";
             userInforBtn.Size = new Size(235, 88);
@@ -69,7 +70,7 @@
             // 
             // showRegisteredSubjectsBtn
             // 
-            showRegisteredSubjectsBtn.Location = new Point(12, 146);
+            showRegisteredSubjectsBtn.Location = new Point(264, 145);
             showRegisteredSubjectsBtn.Margin = new Padding(3, 4, 3, 4);
             showRegisteredSubjectsBtn.Name = "showRegisteredSubjectsBtn";
             showRegisteredSubjectsBtn.Size = new Size(235, 91);
@@ -80,7 +81,7 @@
             // 
             // showGradeBtn
             // 
-            showGradeBtn.Location = new Point(12, 261);
+            showGradeBtn.Location = new Point(12, 385);
             showGradeBtn.Margin = new Padding(3, 4, 3, 4);
             showGradeBtn.Name = "showGradeBtn";
             showGradeBtn.Size = new Size(235, 91);
@@ -91,7 +92,7 @@
             // 
             // showSchoolFeeBtn
             // 
-            showSchoolFeeBtn.Location = new Point(264, 261);
+            showSchoolFeeBtn.Location = new Point(12, 256);
             showSchoolFeeBtn.Margin = new Padding(3, 4, 3, 4);
             showSchoolFeeBtn.Name = "showSchoolFeeBtn";
             showSchoolFeeBtn.Size = new Size(235, 91);
@@ -102,7 +103,7 @@
             // 
             // seeAllSubjectsBtn
             // 
-            seeAllSubjectsBtn.Location = new Point(264, 146);
+            seeAllSubjectsBtn.Location = new Point(264, 256);
             seeAllSubjectsBtn.Margin = new Padding(3, 4, 3, 4);
             seeAllSubjectsBtn.Name = "seeAllSubjectsBtn";
             seeAllSubjectsBtn.Size = new Size(235, 91);
@@ -111,11 +112,23 @@
             seeAllSubjectsBtn.UseVisualStyleBackColor = true;
             seeAllSubjectsBtn.Click += seeAllSubjectsBtn_Click;
             // 
+            // dangkymon
+            // 
+            dangkymon.Location = new Point(12, 145);
+            dangkymon.Margin = new Padding(3, 4, 3, 4);
+            dangkymon.Name = "dangkymon";
+            dangkymon.Size = new Size(235, 91);
+            dangkymon.TabIndex = 9;
+            dangkymon.Text = "Đăng ký môn";
+            dangkymon.UseVisualStyleBackColor = true;
+            dangkymon.Click += dangkymon_Click;
+            // 
             // SinhVienHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(528, 535);
+            Controls.Add(dangkymon);
             Controls.Add(seeAllSubjectsBtn);
             Controls.Add(showSchoolFeeBtn);
             Controls.Add(showGradeBtn);
@@ -139,5 +152,6 @@
         private System.Windows.Forms.Button showGradeBtn;
         private System.Windows.Forms.Button showSchoolFeeBtn;
         private System.Windows.Forms.Button seeAllSubjectsBtn;
+        private Button dangkymon;
     }
 }
