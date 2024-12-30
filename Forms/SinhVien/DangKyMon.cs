@@ -7,13 +7,78 @@ namespace QuanLiSinhVien.Forms.SinhVien
     {
         private String masv;
         private QuanLyHocSinhContext db;
+        private String maKhoa;
         public DangKyMon(Database.SinhVien sinhvien)
         {
             InitializeComponent();
             this.masv = sinhvien.MaSv;
-            var maKhoa = sinhvien.MaKhoa;
+            this.maKhoa = sinhvien.MaKhoa;
             db = new QuanLyHocSinhContext();
+            updateDsChuaDk();
+            updateDsDaDk();
+        }
 
+        private void dsChuaDk_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string maLHP = dsChuaDk.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string caption = "Đăng ký lớp học phần";
+            string text= "Bạn có muốn đăng ký lớp học phần " + dsChuaDk.Rows[e.RowIndex].Cells[1].Value + " ?";
+            if (ShowConfirmDialog(text, caption))
+            {
+                db.DangKyHocPhans.Add(new DangKyHocPhan
+                {
+                    MaSv = masv,
+                    MaLopHp = maLHP
+                });
+                db.SaveChanges();
+                Thread.Sleep(1000);
+                updateDsChuaDk();
+                updateDsDaDk();
+            }
+        }
+
+        private void dsDaDk_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string maLHP = dsDaDk.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string caption = "Hủy đăng ký lớp học phần";
+            string text= "Bạn có muốn hủy đăng ký lớp học phần" + dsDaDk.Rows[e.RowIndex].Cells[1].Value + " ?";
+            if (ShowConfirmDialog(text, caption))
+            {
+                try
+                {
+                    db.DangKyHocPhans.Remove(db.DangKyHocPhans.First(h => h.MaLopHp == maLHP && h.MaSv == masv));
+                    db.SaveChanges();
+                    Thread.Sleep(1000);
+                    updateDsDaDk();
+                    updateDsChuaDk();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        
+        private bool ShowConfirmDialog(string text, string caption)
+        {
+            // Hiển thị hộp thoại xác nhận
+            DialogResult result = MessageBox.Show(
+                text, // Nội dung thông báo
+                caption, // Tiêu đề
+                MessageBoxButtons.YesNo, // Các nút Yes và No
+                MessageBoxIcon.Question // Biểu tượng dấu hỏi
+            );
+
+            // Xử lý kết quả
+            if (result == DialogResult.Yes)
+            {
+               return true;
+            }
+            return false;
+        }
+
+        private void updateDsChuaDk()
+        {
             var dsChuaDk = db.LopHocPhans
                 .GroupJoin(
                     db.DangKyHocPhans,
@@ -73,16 +138,19 @@ namespace QuanLiSinhVien.Forms.SinhVien
             this.dsChuaDk.DataSource = dsChuaDk;
             this.dsChuaDk.Update();
             this.dsChuaDk.Refresh();
+        }
 
+        private void updateDsDaDk()
+        {
             var dsDaDk = db.LopHocPhans.Join(db.DangKyHocPhans, lhp => lhp.MaLopHp, dkhp => dkhp.MaLopHp, (lhp, dkhp) =>
-                new
-                {
-                    maLHP = lhp.MaLopHp,
-                    tenLHP = lhp.TenLop,
-                    maK = lhp.MaKhoa,
-                    maMH = lhp.MaMh,
-                    maSV = dkhp.MaSv,
-                })
+                    new
+                    {
+                        maLHP = lhp.MaLopHp,
+                        tenLHP = lhp.TenLop,
+                        maK = lhp.MaKhoa,
+                        maMH = lhp.MaMh,
+                        maSV = dkhp.MaSv,
+                    })
                 .Join(db.MonHocs, x => x.maMH, mh => mh.MaMh, (lhp, mh) => new RegisterSubject
                 {
                     maLHP = lhp.maLHP,
@@ -96,49 +164,6 @@ namespace QuanLiSinhVien.Forms.SinhVien
             this.dsDaDk.Update();
             this.dsDaDk.Refresh();
         }
-
-        private void dsChuaDk_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string maLHP = dsChuaDk.Rows[e.RowIndex].Cells[0].Value.ToString();
-            string caption = "Đăng ký lớp học phần";
-            string text= "Bạn có muốn đăng ký lớp học phần " + dsChuaDk.Rows[e.RowIndex].Cells[1].Value + " ?";
-            if (ShowConfirmDialog(text, caption))
-            {
-                db.DangKyHocPhans.Add(new DangKyHocPhan
-                {
-                    MaSv = masv,
-                    MaLopHp = maLHP
-                });
-                db.SaveChanges();
-                dsDaDk.Rows.Add(dsChuaDk.Rows[e.RowIndex]);
-                dsChuaDk.Rows.RemoveAt(e.RowIndex);
-            }
-        }
-
-        private void dsDaDk_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string caption = "Đăng ký lớp học phần";
-            string text= "Bạn có muốn đăng ký lớp học phần";
-            ShowConfirmDialog(text, caption);
-        }
         
-        private bool ShowConfirmDialog(string text, string caption)
-        {
-            // Hiển thị hộp thoại xác nhận
-            DialogResult result = MessageBox.Show(
-                text, // Nội dung thông báo
-                caption, // Tiêu đề
-                MessageBoxButtons.YesNo, // Các nút Yes và No
-                MessageBoxIcon.Question // Biểu tượng dấu hỏi
-            );
-
-            // Xử lý kết quả
-            if (result == DialogResult.Yes)
-            {
-               return true;
-            }
-            return false;
-        }
-
     }
 }

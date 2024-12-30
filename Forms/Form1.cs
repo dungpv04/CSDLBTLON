@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLiSinhVien.Database;
+using QuanLiSinhVien.Forms.Admin;
 
 namespace QuanLiSinhVien
 {
@@ -44,6 +45,11 @@ namespace QuanLiSinhVien
                     SinhVienHome sinhVienHome = new SinhVienHome(sinhVien);
                     sinhVienHome.Show();
                     //Hide();
+                }
+                else if (vaiTro.TenVt == "Admin")
+                {
+                    var adminHome = new AdminHome();
+                    adminHome.Show();
                 }
 
             }
