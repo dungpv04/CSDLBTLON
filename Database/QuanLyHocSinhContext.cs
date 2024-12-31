@@ -141,6 +141,7 @@ public partial class QuanLyHocSinhContext : DbContext
             entity.HasOne(d => d.MaTkNavigation).WithMany(p => p.GiangViens)
                 .HasForeignKey(d => d.MaTk)
                 .HasConstraintName("FK__GiangVien__MaTK__3F466844");
+            entity.ToTable("GiangVien", tb => tb.HasTrigger("trg_xoa_giangvien"));
         });
 
         modelBuilder.Entity<HocKy>(entity =>
@@ -243,6 +244,7 @@ public partial class QuanLyHocSinhContext : DbContext
                 .HasForeignKey(d => d.MaMh)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__LopHocPhan__MaMH__534D60F1");
+            entity.ToTable("LopHocPhan", tb => tb.HasTrigger("trg_xoa_diem_lophocphan"));
         });
 
         modelBuilder.Entity<LopQuanLy>(entity =>
@@ -293,6 +295,7 @@ public partial class QuanLyHocSinhContext : DbContext
             entity.HasOne(d => d.MaKNavigation).WithMany(p => p.MonHocs)
                 .HasForeignKey(d => d.MaK)
                 .HasConstraintName("FK__MonHoc__MaK__4CA06362");
+            entity.ToTable("MonHoc", tb => tb.HasTrigger("trg_xoa_diem_monhoc"));
         });
 
         modelBuilder.Entity<SinhVien>(entity =>
@@ -341,7 +344,7 @@ public partial class QuanLyHocSinhContext : DbContext
             entity.HasOne(d => d.MaTkNavigation).WithMany(p => p.SinhViens)
                 .HasForeignKey(d => d.MaTk)
                 .HasConstraintName("FK__SinhVien__MaTK__46E78A0C");
-            entity.ToTable("SinhVien", tb => tb.HasTrigger("trg_taotaikhoan_sinhvien1"));
+            entity.ToTable("SinhVien", tb => tb.HasTrigger("trg_taotaikhoan_sinhvien"));
         });
 
         modelBuilder.Entity<TaiKhoan>(entity =>

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLiSinhVien.Forms.Admin.QLGV;
+using QuanLiSinhVien.Forms.Admin.QLMH;
 using QuanLiSinhVien.Forms.Admin.QLSV;
 
 namespace QuanLiSinhVien.Forms.Admin
@@ -26,12 +28,14 @@ namespace QuanLiSinhVien.Forms.Admin
 
         private void qlgv_Click(object sender, EventArgs e)
         {
-
+            var qlgvHome = new QLGVHome();
+            qlgvHome.Show();
         }
 
         private void qlmh_Click(object sender, EventArgs e)
         {
-
+            var qlmhhome = new QLMHHome();
+            qlmhhome.Show();
         }
 
         private void qlk_Click(object sender, EventArgs e)

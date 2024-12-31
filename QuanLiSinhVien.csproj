@@ -30,6 +30,30 @@
     <Compile Update="Forms\Admin\QLSV\QLSVAdd.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Admin\QLGV\QLGVAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\QLGV\QLGVDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\QLGV\QLGVHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\QLMH\QLMHAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\QLMH\QLMHDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\QLMH\QLMHHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Forms\Admin\QLGV\QLSVAdd.resx" />
+    <AdditionalFiles Include="Forms\Admin\QLGV\QLSVDetail.resx" />
+    <AdditionalFiles Include="Forms\Admin\QLGV\QLSVHome.resx" />
   </ItemGroup>
 
 </Project>
