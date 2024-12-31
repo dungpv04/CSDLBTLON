@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <Folder Include="Database\" />
-    <Folder Include="Forms\Admin\QLLQL\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
@@ -49,12 +48,24 @@
     <Compile Update="Forms\Admin\QLMH\QLMHHome.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Admin\QLLQL\QLLQLAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\QLLQL\QLLQLDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\QLLQL\QLLQLHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <AdditionalFiles Include="Forms\Admin\QLGV\QLSVAdd.resx" />
     <AdditionalFiles Include="Forms\Admin\QLGV\QLSVDetail.resx" />
     <AdditionalFiles Include="Forms\Admin\QLGV\QLSVHome.resx" />
+    <AdditionalFiles Include="Forms\Admin\QLLQL\QLKAdd.resx" />
+    <AdditionalFiles Include="Forms\Admin\QLLQL\QLKDetail.resx" />
+    <AdditionalFiles Include="Forms\Admin\QLLQL\QLKHome.resx" />
   </ItemGroup>
 
 </Project>
