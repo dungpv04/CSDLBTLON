@@ -4,6 +4,15 @@
     <Compile Update="Forms\Admin\AdminHome.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Admin\QLK\QLKAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\QLK\QLKDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\QLK\QLKHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Admin\QLSV\QLSVDetail.cs">
       <SubType>Form</SubType>
     </Compile>

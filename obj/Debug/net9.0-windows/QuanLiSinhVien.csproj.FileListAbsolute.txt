@@ -156,3 +156,6 @@ E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.Q
 E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLMH.QLMHAdd.resources
 E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLMH.QLMHDetail.resources
 E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLMH.QLMHHome.resources
+E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLK.QLKAdd.resources
+E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLK.QLKDetail.resources
+E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLK.QLKHome.resources
