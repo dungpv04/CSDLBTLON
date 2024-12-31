@@ -341,6 +341,7 @@ public partial class QuanLyHocSinhContext : DbContext
             entity.HasOne(d => d.MaTkNavigation).WithMany(p => p.SinhViens)
                 .HasForeignKey(d => d.MaTk)
                 .HasConstraintName("FK__SinhVien__MaTK__46E78A0C");
+            entity.ToTable("SinhVien", tb => tb.HasTrigger("trg_taotaikhoan_sinhvien1"));
         });
 
         modelBuilder.Entity<TaiKhoan>(entity =>

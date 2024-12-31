@@ -75,12 +75,10 @@ namespace QuanLiSinhVien.Forms.Admin.QLSV
             sv.MaKhoa = khoa.SelectedValue.ToString();
             sv.MaLopQl = lql.SelectedValue.ToString();
             db.SinhViens.Update(sinhvien);
-            //Thread.Sleep(1000);
-            db.SaveChangesAsync();
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
+            db.SaveChanges();
+            Thread.Sleep(1000);
             home.updateDSSV();
-            //Thread.Sleep(1000);
-            cbKhoa.SelectedValue = khoa.SelectedValue;
             Close();
         }
 
@@ -100,8 +98,6 @@ namespace QuanLiSinhVien.Forms.Admin.QLSV
                 db.SaveChanges();
                 Thread.Sleep(1000);
                 home.updateDSSV();
-                Thread.Sleep(1000);
-                cbKhoa.SelectedValue = khoa.SelectedValue;
                 Close();
             }
         }

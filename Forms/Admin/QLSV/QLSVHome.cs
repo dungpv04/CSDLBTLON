@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 using QuanLiSinhVien.Database;
 using QuanLiSinhVien.Models;
 
@@ -44,9 +45,9 @@ namespace QuanLiSinhVien.Forms.Admin.QLSV
             var dssv = new List<Database.SinhVien>();
             if (!makhoa.Equals("All"))
             {
-                dssv = db.SinhViens.Where(x => x.MaKhoa == makhoa).ToList();
+                dssv = db.SinhViens.AsNoTracking().Where(x => x.MaKhoa == makhoa).ToList();
             }
-            else dssv = db.SinhViens.ToList();
+            else dssv = db.SinhViens.AsNoTracking().ToList();
             finalDssv = new List<SinhvienAdmin>();
             var lopQL = db.LopQuanLies.ToList();
             foreach (var sv in dssv)
