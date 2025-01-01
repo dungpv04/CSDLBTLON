@@ -162,3 +162,6 @@ E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.Q
 E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLLQL.QLLQLAdd.resources
 E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLLQL.QLLQLDetail.resources
 E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLLQL.QLLQLHome.resources
+E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLLHP.QLLHPAdd.resources
+E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLLHP.QLLHPDetail.resources
+E:\sql\QLSV\QuanLiSinhVien\obj\Debug\net9.0-windows\QuanLiSinhVien.Forms.Admin.QLLHP.QLLHPHome.resources

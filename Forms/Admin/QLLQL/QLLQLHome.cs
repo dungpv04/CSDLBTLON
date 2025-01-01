@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Microsoft.EntityFrameworkCore;
 using QuanLiSinhVien.Database;
 using QuanLiSinhVien.Models;
 
@@ -12,6 +13,20 @@ namespace QuanLiSinhVien.Forms.Admin.QLLQL
         {
             InitializeComponent();
             db = new QuanLyHocSinhContext();
+            dsKhoa = db.Khoas.Select( x=> new DsKhoa
+            {
+                MaK = x.MaK,
+                TenK = x.TenK,
+            }).ToList();
+            dsKhoa.Add(new DsKhoa
+            {
+                MaK = "All",
+                TenK = "Tất cả",
+            });
+            khoa.DataSource = dsKhoa;
+            khoa.ValueMember = "MaK";
+            khoa.DisplayMember = "TenK";
+            khoa.SelectedValue = "All";
             updateDSLQL();
         }
 
@@ -36,10 +51,10 @@ namespace QuanLiSinhVien.Forms.Admin.QLLQL
         public void updateDSLQL()
         {
             List<LopQuanLy> dslql;
-            if (khoa.SelectedValue == "All")
-                dslql = db.LopQuanLies.ToList();
+            if (khoa.SelectedValue.ToString() == "All")
+                dslql = db.LopQuanLies.AsNoTracking().ToList();
             else
-                dslql = db.LopQuanLies.Where(x => x.MaKhoa == khoa.SelectedValue).ToList();
+                dslql = db.LopQuanLies.Where(x => x.MaKhoa == khoa.SelectedValue.ToString()).AsNoTracking().ToList();
             var dsGV = db.GiangViens.ToList();
             List<LQLAdmin> finalDS = new List<LQLAdmin>();
             foreach (var lql in dslql)
